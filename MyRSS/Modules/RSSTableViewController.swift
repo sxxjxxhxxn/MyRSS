@@ -10,7 +10,7 @@ import UIKit
 
 class RSSTableViewController: UITableViewController {
     
-    private var rssItems : [RSS]?
+    private var rssItems: [RSS]?
     var feed = Feed(name: "Google News", link: "https://news.google.com/rss?hl=ko&gl=KR&ceid=KR:ko")
     
     
@@ -49,7 +49,7 @@ class RSSTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoryCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StoryCell", for: indexPath) as? RSSTableViewCell else { fatalError("cell type convertion error") }
         
         if let item = rssItems?[indexPath.item]{
             
