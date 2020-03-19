@@ -57,14 +57,20 @@ class RSSTableViewController: UITableViewController {
             DispatchQueue.global().async {
                 do {
                     if let head = try HTML(url: item.link, encoding: .utf8).head {
-                        
-                        DispatchQueue.main.async {
-                            for metadata in head.css("meta[name='description']"){
+                        for metadata in head.css("meta[property='og:image']"){
+                            if let imageLink = metadata["content"] {
+                                let imageUrl = URL(string: imageLink)!
+                                if let imageData = try? Data(contentsOf: imageUrl) {
+                                    DispatchQueue.main.async {
+                                        cell.rssImage = UIImage(data: imageData)
+                                    }
+                                }
+                            }
+                        }
+                        for metadata in head.css("meta[name='description']"){
+                            DispatchQueue.main.async {
                                 cell.rssDescriptionLabel.text = metadata["content"]
                             }
-//                            for metadata in head.css("meta[property='og:image']"){
-//                                cell.rssImage = metadata["content"]
-//                            }
                         }
                     }
                 } catch {

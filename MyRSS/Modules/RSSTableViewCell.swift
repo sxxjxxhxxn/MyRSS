@@ -21,6 +21,10 @@ class RSSTableViewCell: UITableViewCell {
     }
 
     
+    override func prepareForReuse() {
+        rssImage = UIImage(named: "placeholder_img")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
