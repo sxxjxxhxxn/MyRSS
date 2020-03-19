@@ -9,6 +9,6 @@
 import Foundation
 
 struct RSS {
-    var title : String
-    var link : URL
+    var title: String
+    var link: URL
 }

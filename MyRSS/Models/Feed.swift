@@ -9,6 +9,6 @@
 import Foundation
 
 struct Feed {
-    var name : String
-    var link : String
+    var name: String
+    var link: String
 }
