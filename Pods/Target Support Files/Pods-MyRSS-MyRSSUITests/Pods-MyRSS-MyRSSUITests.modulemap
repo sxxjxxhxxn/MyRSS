@@ -1,0 +1,6 @@
+framework module Pods_MyRSS_MyRSSUITests {
+  umbrella header "Pods-MyRSS-MyRSSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
