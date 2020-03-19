@@ -57,6 +57,7 @@ class RSSTableViewController: UITableViewController {
             DispatchQueue.global().async {
                 do {
                     if let head = try HTML(url: item.link, encoding: .utf8).head {
+                        
                         DispatchQueue.main.async {
                             for metadata in head.css("meta[name='description']"){
                                 cell.rssDescriptionLabel.text = metadata["content"]

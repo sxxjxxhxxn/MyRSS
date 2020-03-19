@@ -147,6 +147,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="D4q-us-HXO"/>
                     <connections>
+                        <outlet property="progressView" destination="2lz-mT-L5d" id="UZA-On-FAM"/>
                         <outlet property="webView" destination="xYE-qU-uIh" id="KlX-QD-EhD"/>
                     </connections>
                 </viewController>

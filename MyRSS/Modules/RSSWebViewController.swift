@@ -12,6 +12,7 @@ import WebKit
 class RSSWebViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var progressView: UIProgressView!
     
     var linkURL : URL?
 
@@ -25,10 +26,16 @@ class RSSWebViewController: UIViewController, WKNavigationDelegate {
         super.viewWillAppear(animated)
         
         if let link = linkURL {
-            print(link)
             let myRequest = URLRequest(url: link)
             webView.load(myRequest)
+            progressView.progress = 0.0
+            webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+        progressView.isHidden = webView.estimatedProgress == 1
     }
 
 }
