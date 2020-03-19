@@ -21,6 +21,7 @@
 		382920E724239205007D9E54 /* RSSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382920E624239205007D9E54 /* RSSHelper.swift */; };
 		382920EA24239311007D9E54 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382920E924239311007D9E54 /* Feed.swift */; };
 		382920EC2423933A007D9E54 /* RSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382920EB2423933A007D9E54 /* RSS.swift */; };
+		382920EF24239737007D9E54 /* RSSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382920EE24239737007D9E54 /* RSSTableViewController.swift */; };
 		B58489A4585A9345D7EA887D /* Pods_MyRSS_MyRSSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA226E6729BDDB2A61879E2F /* Pods_MyRSS_MyRSSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		382920E624239205007D9E54 /* RSSHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSHelper.swift; sourceTree = "<group>"; };
 		382920E924239311007D9E54 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		382920EB2423933A007D9E54 /* RSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSS.swift; sourceTree = "<group>"; };
+		382920EE24239737007D9E54 /* RSSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSTableViewController.swift; sourceTree = "<group>"; };
 		4D698CE1EF6D4524D55B37FB /* Pods-MyRSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRSS.release.xcconfig"; path = "Target Support Files/Pods-MyRSS/Pods-MyRSS.release.xcconfig"; sourceTree = "<group>"; };
 		AD30D780EFE8DD717A63D243 /* Pods-MyRSS-MyRSSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRSS-MyRSSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyRSS-MyRSSUITests/Pods-MyRSS-MyRSSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B315E398213560A69414EC21 /* Pods-MyRSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRSS.debug.xcconfig"; path = "Target Support Files/Pods-MyRSS/Pods-MyRSS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		382920B124238844007D9E54 /* MyRSS */ = {
 			isa = PBXGroup;
 			children = (
+				382920ED242396FF007D9E54 /* Modules */,
 				382920E82423922C007D9E54 /* Models */,
 				382920E5242391E9007D9E54 /* Helpers */,
 				382920B224238844007D9E54 /* AppDelegate.swift */,
@@ -171,6 +174,14 @@
 				382920EB2423933A007D9E54 /* RSS.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		382920ED242396FF007D9E54 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				382920EE24239737007D9E54 /* RSSTableViewController.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		9ADC0CC8E4FA863AC586A117 /* Frameworks */ = {
@@ -441,6 +452,7 @@
 				382920B724238844007D9E54 /* ViewController.swift in Sources */,
 				382920B324238844007D9E54 /* AppDelegate.swift in Sources */,
 				382920B524238844007D9E54 /* SceneDelegate.swift in Sources */,
+				382920EF24239737007D9E54 /* RSSTableViewController.swift in Sources */,
 				382920E724239205007D9E54 /* RSSHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

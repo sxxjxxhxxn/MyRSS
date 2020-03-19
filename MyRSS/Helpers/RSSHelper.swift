@@ -43,7 +43,6 @@ class RSSHelper: NSObject, XMLParserDelegate {
             let parser = XMLParser(data: data)
             parser.delegate = self
             parser.parse()
-            
         }
         task.resume()
     }
