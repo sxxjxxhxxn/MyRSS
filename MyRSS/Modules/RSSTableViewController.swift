@@ -13,11 +13,18 @@ class RSSTableViewController: UITableViewController {
     
     private var rssItems: [RSS]?
     var feed = Feed(name: "Google News", link: "https://news.google.com/rss?hl=ko&gl=KR&ceid=KR:ko")
+    /// refresh tableView
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
+        return refreshControl
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.refreshControl = refresher
         fetchData()
     }
     
@@ -27,16 +34,18 @@ class RSSTableViewController: UITableViewController {
         self.title = feed.name
     }
     
-    private func fetchData(){
+    @objc private func fetchData(){
         let feedParser = RSSHelper()
         feedParser.parseFeed(url: (feed.link)) { (rssItems) in
             self.rssItems = rssItems
             
             OperationQueue.main.addOperation {
                 self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
+                self.refreshControl?.endRefreshing()
             }
         }
     }
+    
 
     // MARK: - Table view data source
 
