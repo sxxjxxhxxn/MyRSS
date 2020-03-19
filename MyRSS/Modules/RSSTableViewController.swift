@@ -78,9 +78,9 @@ class RSSTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("selection error") }
         if let rssItems = self.rssItems {
-//            if let destination = segue.destination as? WebViewController {
-//                destination.linkURL = rssItems[selectedIndexPath.row].link
-//            }
+            if let destination = segue.destination as? RSSWebViewController {
+                destination.linkURL = rssItems[selectedIndexPath.row].link
+            }
         }
     }
 

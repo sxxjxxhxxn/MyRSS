@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="900.00000000000011" y="127.90178571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="QNx-G0-Six">
             <objects>
-                <viewController id="jGV-4K-eS4" sceneMemberID="viewController">
+                <viewController id="jGV-4K-eS4" customClass="RSSWebViewController" customModule="MyRSS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fnZ-4T-5Jx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,6 +146,9 @@
                         <viewLayoutGuide key="safeArea" id="pBu-52-Z9h"/>
                     </view>
                     <navigationItem key="navigationItem" id="D4q-us-HXO"/>
+                    <connections>
+                        <outlet property="webView" destination="xYE-qU-uIh" id="KlX-QD-EhD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Dz-Wl-pj7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
