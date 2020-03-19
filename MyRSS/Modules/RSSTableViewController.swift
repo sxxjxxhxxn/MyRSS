@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kanna
 
 class RSSTableViewController: UITableViewController {
     
@@ -49,10 +50,26 @@ class RSSTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StoryCell", for: indexPath) as? RSSTableViewCell else { fatalError("cell type convertion error") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RSSTableViewCell", for: indexPath) as? RSSTableViewCell else { fatalError("cell type convertion error") }
         
         if let item = rssItems?[indexPath.item]{
-            
+            cell.rssTitleLabel.text = item.title
+            DispatchQueue.global().async {
+                do {
+                    if let head = try HTML(url: item.link, encoding: .utf8).head {
+                        DispatchQueue.main.async {
+                            for metadata in head.css("meta[name='description']"){
+                                cell.rssDescriptionLabel.text = metadata["content"]
+                            }
+//                            for metadata in head.css("meta[property='og:image']"){
+//                                cell.rssImage = metadata["content"]
+//                            }
+                        }
+                    }
+                } catch {
+                    print("can't parse html")
+                }
+            }
         }
         
         return cell

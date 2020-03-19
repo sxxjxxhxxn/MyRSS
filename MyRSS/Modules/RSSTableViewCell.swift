@@ -10,21 +10,9 @@ import UIKit
 
 class RSSTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var rssTitleLabel: UILabel!
     @IBOutlet weak var rssDescriptionLabel: UILabel!
     @IBOutlet weak var rssImageView: UIImageView!
-    
-    var rssTitle: String? {
-        didSet {
-            titleLabel.text = self.rssTitle
-        }
-    }
-    
-    var rssDescription: String? {
-        didSet {
-            rssDescriptionLabel.text = self.rssDescription
-        }
-    }
     
     var rssImage: UIImage? {
         didSet {
