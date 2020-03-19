@@ -86,7 +86,9 @@ class RSSTableViewController: UITableViewController {
         guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("selection error") }
         if let rssItems = self.rssItems {
             if let destination = segue.destination as? RSSWebViewController {
-                destination.linkURL = rssItems[selectedIndexPath.row].link
+                let rssItem = rssItems[selectedIndexPath.row]
+                destination.title = rssItem.title
+                destination.linkURL = rssItem.link
             }
         }
     }
