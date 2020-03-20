@@ -24,6 +24,7 @@
 		382920EF24239737007D9E54 /* RSSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382920EE24239737007D9E54 /* RSSTableViewController.swift */; };
 		382920F124239831007D9E54 /* RSSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382920F024239831007D9E54 /* RSSTableViewCell.swift */; };
 		382920F72423A23B007D9E54 /* RSSWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382920F62423A23B007D9E54 /* RSSWebViewController.swift */; };
+		3858BC532424DD1E00CF1FE1 /* String+Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3858BC522424DD1E00CF1FE1 /* String+Keyword.swift */; };
 		B58489A4585A9345D7EA887D /* Pods_MyRSS_MyRSSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA226E6729BDDB2A61879E2F /* Pods_MyRSS_MyRSSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		382920EE24239737007D9E54 /* RSSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSTableViewController.swift; sourceTree = "<group>"; };
 		382920F024239831007D9E54 /* RSSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSTableViewCell.swift; sourceTree = "<group>"; };
 		382920F62423A23B007D9E54 /* RSSWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSWebViewController.swift; sourceTree = "<group>"; };
+		3858BC522424DD1E00CF1FE1 /* String+Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Keyword.swift"; sourceTree = "<group>"; };
 		4D698CE1EF6D4524D55B37FB /* Pods-MyRSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRSS.release.xcconfig"; path = "Target Support Files/Pods-MyRSS/Pods-MyRSS.release.xcconfig"; sourceTree = "<group>"; };
 		AD30D780EFE8DD717A63D243 /* Pods-MyRSS-MyRSSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRSS-MyRSSUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyRSS-MyRSSUITests/Pods-MyRSS-MyRSSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B315E398213560A69414EC21 /* Pods-MyRSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRSS.debug.xcconfig"; path = "Target Support Files/Pods-MyRSS/Pods-MyRSS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				382920E624239205007D9E54 /* RSSHelper.swift */,
+				3858BC522424DD1E00CF1FE1 /* String+Keyword.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				382920F72423A23B007D9E54 /* RSSWebViewController.swift in Sources */,
 				382920BD24238844007D9E54 /* MyRSS.xcdatamodeld in Sources */,
 				382920EA24239311007D9E54 /* Feed.swift in Sources */,
+				3858BC532424DD1E00CF1FE1 /* String+Keyword.swift in Sources */,
 				382920EC2423933A007D9E54 /* RSS.swift in Sources */,
 				382920B724238844007D9E54 /* ViewController.swift in Sources */,
 				382920B324238844007D9E54 /* AppDelegate.swift in Sources */,

@@ -85,6 +85,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="keywordLabel1" destination="KqZ-OY-8U8" id="5Tu-wI-ti5"/>
+                                    <outlet property="keywordLabel2" destination="9s6-gI-SHr" id="MWg-zM-4Qj"/>
+                                    <outlet property="keywordLabel3" destination="3UC-Rq-KNb" id="nzY-fs-Fje"/>
                                     <outlet property="rssDescriptionLabel" destination="5TW-4c-RGU" id="UAc-gk-1I8"/>
                                     <outlet property="rssImageView" destination="uyc-Q2-ngu" id="wtV-du-FCx"/>
                                     <outlet property="rssTitleLabel" destination="d58-qc-0yD" id="mSy-tF-nqX"/>

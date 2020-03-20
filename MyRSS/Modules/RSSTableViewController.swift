@@ -76,9 +76,11 @@ class RSSTableViewController: UITableViewController {
                                 }
                             }
                         }
-                        for metadata in head.css("meta[name='description']"){
+                        for metadata in head.css("meta[name='description']") {
+                            let description = metadata["content"]
                             DispatchQueue.main.async {
-                                cell.rssDescriptionLabel.text = metadata["content"]
+                                cell.rssDescriptionLabel.text = description
+                                cell.keywords = description?.keyword()
                             }
                         }
                     }
