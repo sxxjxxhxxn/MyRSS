@@ -62,7 +62,6 @@ class RSSTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RSSTableViewCell", for: indexPath) as? RSSTableViewCell else { fatalError("cell type convertion error") }
         
         if let item = rssItems?[indexPath.item]{
-            cell.rssTitleLabel.text = item.title
             DispatchQueue.global().async {
                 do {
                     if let head = try HTML(url: item.link, encoding: .utf8).head {
@@ -72,6 +71,8 @@ class RSSTableViewController: UITableViewController {
                                 if let imageData = try? Data(contentsOf: imageUrl) {
                                     DispatchQueue.main.async {
                                         cell.rssImage = UIImage(data: imageData)
+                                        cell.rssTitleLabel.text = item.title
+                                        cell.link = item.link
                                     }
                                 }
                             }
@@ -85,7 +86,12 @@ class RSSTableViewController: UITableViewController {
                         }
                     }
                 } catch {
-                    print("can't parse html")
+                    print(error, "can't parse html")
+                    DispatchQueue.main.async {
+                        cell.rssImage = UIImage(named: "placeholder_img")
+                        cell.rssDescriptionLabel.text = "Description"
+                        cell.keywords = ["...", "...", "..."]
+                    }
                 }
             }
         }

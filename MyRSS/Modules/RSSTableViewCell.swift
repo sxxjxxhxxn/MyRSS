@@ -17,6 +17,7 @@ class RSSTableViewCell: UITableViewCell {
     @IBOutlet weak var keywordLabel2: UILabel!
     @IBOutlet weak var keywordLabel3: UILabel!
     
+    var link: URL!
     var rssImage: UIImage? {
         didSet {
             rssImageView.image = self.rssImage
@@ -34,9 +35,14 @@ class RSSTableViewCell: UITableViewCell {
         }
     }
     
+    
     override func prepareForReuse() {
-        keywords = []
-        rssImage = UIImage(named: "placeholder_img")
+        rssDescriptionLabel.text = "Description"
+        let keywordLabels = [keywordLabel1, keywordLabel2, keywordLabel3]
+        for i in 0 ..< keywordLabels.count {
+            keywordLabels[i]?.text = "..."
+        }
+        rssImageView.image = UIImage(named: "placeholder_img")
     }
     
     override func awakeFromNib() {
