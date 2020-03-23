@@ -40,7 +40,7 @@ class RSSTableViewCell: UITableViewCell {
         rssDescriptionLabel.text = "Description"
         let keywordLabels = [keywordLabel1, keywordLabel2, keywordLabel3]
         for i in 0 ..< keywordLabels.count {
-            keywordLabels[i]?.text = "..."
+            keywordLabels[i]?.text = " ... "
         }
         rssImageView.image = UIImage(named: "placeholder_img")
     }

@@ -66,13 +66,16 @@ class RSSTableViewController: UITableViewController {
                 do {
                     if let head = try HTML(url: item.link, encoding: .utf8).head {
                         for metadata in head.css("meta[property='og:image']"){
+                            DispatchQueue.main.async {
+                                cell.rssTitleLabel.text = item.title
+                                cell.link = item.link
+                            }
                             if let imageLink = metadata["content"] {
-                                let imageUrl = URL(string: imageLink)!
-                                if let imageData = try? Data(contentsOf: imageUrl) {
-                                    DispatchQueue.main.async {
-                                        cell.rssImage = UIImage(data: imageData)
-                                        cell.rssTitleLabel.text = item.title
-                                        cell.link = item.link
+                                if let imageUrl = URL(string: imageLink) {
+                                    if let imageData = try? Data(contentsOf: imageUrl) {
+                                        DispatchQueue.main.async {
+                                            cell.rssImage = UIImage(data: imageData)
+                                        }
                                     }
                                 }
                             }
