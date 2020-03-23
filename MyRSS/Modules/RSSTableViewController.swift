@@ -60,41 +60,57 @@ class RSSTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RSSTableViewCell", for: indexPath) as? RSSTableViewCell else { fatalError("cell type convertion error") }
+        let id = indexPath.item
         
-        if let item = rssItems?[indexPath.item]{
-            DispatchQueue.global().async {
-                do {
-                    if let head = try HTML(url: item.link, encoding: .utf8).head {
-                        for metadata in head.css("meta[property='og:image']"){
-                            DispatchQueue.main.async {
-                                cell.rssTitleLabel.text = item.title
-                                cell.link = item.link
+        if let item = self.rssItems?[id] {
+            cell.rssTitleLabel.text = item.title
+            cell.link = item.link
+            
+            if let description = item.description {
+                cell.rssDescriptionLabel.text = description
+                cell.keywords = description.keyword()
+                DispatchQueue.global().async {
+                    if let imageUrlString = item.imageLink {
+                        if let imageUrl = URL(string: imageUrlString) {
+                            if let imageData = try? Data(contentsOf: imageUrl) {
+                                DispatchQueue.main.async {
+                                    cell.rssImage = UIImage(data: imageData)
+                                }
                             }
-                            if let imageLink = metadata["content"] {
-                                if let imageUrl = URL(string: imageLink) {
-                                    if let imageData = try? Data(contentsOf: imageUrl) {
-                                        DispatchQueue.main.async {
-                                            cell.rssImage = UIImage(data: imageData)
+                        }
+                    }
+                }
+            } else {
+                DispatchQueue.global().async {
+                    var description: String?
+                    var imageLink: String?
+                    do {
+                        if let head = try HTML(url: item.link, encoding: .utf8).head {
+                            for metadata in head.css("meta[property='og:description']") {
+                                description = metadata["content"]
+                                DispatchQueue.main.async {
+                                    cell.rssDescriptionLabel.text = description
+                                    cell.keywords = description?.keyword()
+                                }
+                            }
+                            for metadata in head.css("meta[property='og:image']") {
+                                imageLink = metadata["content"]
+                                if let imageUrlString = imageLink {
+                                    if let imageUrl = URL(string: imageUrlString) {
+                                        if let imageData = try? Data(contentsOf: imageUrl) {
+                                            DispatchQueue.main.async {
+                                                cell.rssImage = UIImage(data: imageData)
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                        for metadata in head.css("meta[name='description']") {
-                            let description = metadata["content"]
-                            DispatchQueue.main.async {
-                                cell.rssDescriptionLabel.text = description
-                                cell.keywords = description?.keyword()
-                            }
-                        }
+                    } catch {
+                        print(error, " at : ", id)
                     }
-                } catch {
-                    print(error, "can't parse html")
-                    DispatchQueue.main.async {
-                        cell.rssImage = UIImage(named: "placeholder_img")
-                        cell.rssDescriptionLabel.text = "Description"
-                        cell.keywords = ["...", "...", "..."]
-                    }
+                    self.rssItems![id].description = description
+                    self.rssItems![id].imageLink = imageLink
                 }
             }
         }
@@ -104,12 +120,11 @@ class RSSTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("selection error") }
-        if let rssItems = self.rssItems {
-            if let destination = segue.destination as? RSSWebViewController {
-                let rssItem = rssItems[selectedIndexPath.row]
-                destination.title = rssItem.title
-                destination.linkURL = rssItem.link
-            }
+        guard let cell = tableView.cellForRow(at: selectedIndexPath) as? RSSTableViewCell else { fatalError("selected cell's type convertion error") }
+        
+        if let destination = segue.destination as? RSSWebViewController {
+            destination.title = cell.rssTitleLabel.text
+            destination.linkURL = cell.link
         }
     }
 

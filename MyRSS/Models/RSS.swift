@@ -11,4 +11,7 @@ import Foundation
 struct RSS {
     var title: String
     var link: URL
+    
+    var description: String?
+    var imageLink: String?
 }
