@@ -125,6 +125,7 @@ class RSSTableViewController: UITableViewController {
         if let destination = segue.destination as? RSSWebViewController {
             destination.title = cell.rssTitleLabel.text
             destination.linkURL = cell.link
+            destination.keywords = cell.keywords
         }
     }
 

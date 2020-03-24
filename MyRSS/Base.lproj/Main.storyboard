@@ -119,8 +119,35 @@
                             </progressView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cO-bl-fZ4">
                                 <rect key="frame" x="0.0" y="90" width="414" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvp-eg-7VO">
+                                        <rect key="frame" x="8" y="4.5" width="14" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOQ-FM-qdt">
+                                        <rect key="frame" x="52" y="4.5" width="14" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mph-8I-AHk">
+                                        <rect key="frame" x="30" y="4.5" width="14" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="tOQ-FM-qdt" firstAttribute="leading" secondItem="mph-8I-AHk" secondAttribute="trailing" constant="8" id="4yP-Wr-81W"/>
+                                    <constraint firstItem="Nvp-eg-7VO" firstAttribute="centerY" secondItem="2cO-bl-fZ4" secondAttribute="centerY" id="9pT-zU-Qtm"/>
+                                    <constraint firstItem="Nvp-eg-7VO" firstAttribute="leading" secondItem="2cO-bl-fZ4" secondAttribute="leadingMargin" id="BxD-RC-CZc"/>
+                                    <constraint firstItem="mph-8I-AHk" firstAttribute="centerY" secondItem="2cO-bl-fZ4" secondAttribute="centerY" id="P8B-Dt-4ao"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tOQ-FM-qdt" secondAttribute="trailing" constant="8" id="Qx0-X0-xIs"/>
+                                    <constraint firstItem="tOQ-FM-qdt" firstAttribute="centerY" secondItem="mph-8I-AHk" secondAttribute="centerY" id="fKm-Ew-4Jh"/>
+                                    <constraint firstItem="mph-8I-AHk" firstAttribute="leading" secondItem="Nvp-eg-7VO" secondAttribute="trailing" constant="8" id="krr-kp-iP8"/>
                                     <constraint firstAttribute="height" constant="30" id="lxK-8o-ZFG"/>
                                 </constraints>
                             </view>
@@ -150,6 +177,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="D4q-us-HXO"/>
                     <connections>
+                        <outlet property="keywordLabel1" destination="Nvp-eg-7VO" id="hLB-Fc-wcX"/>
+                        <outlet property="keywordLabel2" destination="mph-8I-AHk" id="04W-23-1fm"/>
+                        <outlet property="keywordLabel3" destination="tOQ-FM-qdt" id="y2i-FH-PMA"/>
                         <outlet property="progressView" destination="2lz-mT-L5d" id="UZA-On-FAM"/>
                         <outlet property="webView" destination="xYE-qU-uIh" id="KlX-QD-EhD"/>
                     </connections>

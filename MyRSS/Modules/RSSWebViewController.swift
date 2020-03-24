@@ -13,8 +13,12 @@ class RSSWebViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var keywordLabel1: UILabel!
+    @IBOutlet weak var keywordLabel2: UILabel!
+    @IBOutlet weak var keywordLabel3: UILabel!
     
-    var linkURL : URL?
+    var linkURL: URL?
+    var keywords: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,14 @@ class RSSWebViewController: UIViewController, WKNavigationDelegate {
             webView.load(myRequest)
             progressView.progress = 0.0
             webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        }
+        if let keywords = keywords {
+            let keywordLabels = [keywordLabel1, keywordLabel2, keywordLabel3]
+            for i in 0 ..< keywords.count {
+                keywordLabels[i]?.text = " " + keywords[i] + " "
+                keywordLabels[i]?.layer.borderWidth = 1
+                keywordLabels[i]?.layer.cornerRadius = 5
+            }
         }
     }
     
