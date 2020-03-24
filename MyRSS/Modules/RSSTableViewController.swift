@@ -109,6 +109,7 @@ class RSSTableViewController: UITableViewController {
                     } catch {
                         print(error, " at : ", id)
                         DispatchQueue.main.async {
+                            cell.rssDescriptionLabel.text = "\(item.link)"
                             cell.keywords = ["...", "...", "..."]
                         }
                     }
