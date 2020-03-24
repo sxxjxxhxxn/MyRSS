@@ -41,10 +41,6 @@ class RSSTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         rssTitleLabel.text = "Title"
         rssDescriptionLabel.text = "Description"
-        let keywordLabels = [keywordLabel1, keywordLabel2, keywordLabel3]
-        for i in 0 ..< keywordLabels.count {
-            keywordLabels[i]?.text = " ... "
-        }
         rssImageView.image = UIImage(named: "placeholder_img")
         link = nil
     }

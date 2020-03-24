@@ -34,7 +34,13 @@ class RSSWebViewController: UIViewController, WKNavigationDelegate {
             webView.load(myRequest)
             progressView.progress = 0.0
             webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        } else {
+            let alert = UIAlertController(title: "알림", message: "링크를 읽어올 수 없습니다.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
+        
         if let keywords = keywords {
             let keywordLabels = [keywordLabel1, keywordLabel2, keywordLabel3]
             for i in 0 ..< keywords.count {
